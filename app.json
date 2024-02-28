@@ -23,6 +23,7 @@
         "backgroundColor": "#ffffff"
       }
     },
+    "scheme": "native-food",
     "web": {
       "favicon": "./assets/favicon.png"
     },
@@ -31,3 +32,4 @@
     ]
   }
 }
+ 

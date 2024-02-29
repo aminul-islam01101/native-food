@@ -15,6 +15,7 @@ import {
 } from "react-native";
 import Carousel from "../../components/Carousel";
 import Categories from "../../components/Categories";
+import Hotel from "../../components/Hotel";
 
 
 const recommended = [
@@ -675,7 +676,7 @@ const index = () => {
       <Text style={{textAlign:"center",marginTop:7,letterSpacing:4,marginBottom:5,color:"gray"}}>ALL RESTAURANTS</Text>
 
 <View style={{marginHorizontal:8}}>
-      {data?.map((item,index) => (
+      {hotels?.map((item,index) => (
           <Hotel key={index} item={item} menu={item?.menu}/>
       ))}
 </View>

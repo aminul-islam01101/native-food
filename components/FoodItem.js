@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
-// import MenuItem from './MenuItem';
+import MenuItem from './MenuItem';
 
 const FoodItem = ({item}) => {
     const data = [item];
@@ -14,9 +14,9 @@ const FoodItem = ({item}) => {
               <AntDesign name="down" size={20} color="black" />
           </Pressable>
 
-            {/* {item?.items?.map((item,index) => (
+            {item?.items?.map((item,index) => (
                 <MenuItem key={index} item={item}/>
-            ))} */}
+            ))}
           </View>
           
       ))}

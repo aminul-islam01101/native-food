@@ -1,16 +1,16 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
-import { useDispatch } from "react-redux";
-import { addToCart, decrementQuantity, incrementQuantity, removeFromCart } from "../redux/CartReducer";
+
+
 
 const MenuItem = ({ item }) => {
+
   const [additems, setAddItems] = useState(0);
   const [selected, setSelected] = useState(false);
-  const dispatch = useDispatch();
   return (
     <View>
-      <Pressable
+       <Pressable
         style={{
           margin: 10,
           flexDirection: "row",
@@ -18,7 +18,7 @@ const MenuItem = ({ item }) => {
           marginVertical: 15,
         }}
       >
-        <View>
+         <View>
           <Text style={{ fontSize: 18, fontWeight: "600", width: 220 }}>
             {item?.name}
           </Text>
@@ -50,7 +50,6 @@ const MenuItem = ({ item }) => {
               : item?.description}
           </Text>
         </View>
-
         <Pressable style={{ marginRight: 10 }}>
           <Image
             style={{ width: 120, height: 120, borderRadius: 8 }}
@@ -152,11 +151,13 @@ const MenuItem = ({ item }) => {
             </Pressable>
           )}
         </Pressable>
+
       </Pressable>
+
     </View>
-  );
-};
+  )
+}
 
-export default MenuItem;
+export default MenuItem
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({})

@@ -177,6 +177,7 @@ console.log(total);
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {instructions?.map((item, index) => (
                 <Pressable
+                  key={index}
                   style={{
                     margin: 10,
                     borderRadius: 10,

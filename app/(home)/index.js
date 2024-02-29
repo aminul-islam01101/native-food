@@ -3,6 +3,7 @@ import * as LocationGeocoding from "expo-location";
 import React, { useEffect, useState } from "react";
 import { Octicons, Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import {
   Alert,
   Image,
@@ -16,6 +17,8 @@ import {
 import Carousel from "../../components/Carousel";
 import Categories from "../../components/Categories";
 import Hotel from "../../components/Hotel";
+import { supabase } from "../../supabase";
+
 
 
 const recommended = [
@@ -427,11 +430,14 @@ const hotels = [
 
 
 const index = () => {
+
+
    const [locationServicesEnabled, setLocationServicesEnabled] = useState(false);
   const [displayCurrentAddress, setDisplayCurrentAddress] = useState(
     "fetching your location ..."
   );
   const [data,setData] = useState([]);
+  const router = useRouter();
 
 
   const CheckIfLocationEnabled = async () => {
@@ -519,6 +525,38 @@ const index = () => {
   }, [locationServicesEnabled]);
   console.log("my address", displayCurrentAddress,);
 
+  async function signOut() {
+    try {
+      const { error } = await supabase.auth.signOut()
+      if (!error) {
+        router.replace("/login")
+      }
+
+
+  
+    
+    } catch (error) {
+      // Handle the error here
+      console.error('Error signing in:', error.message);
+      // You can also show an error message to the user if needed
+    }
+  }
+  // useEffect(async() => {
+  //   try {
+  //     const { data, error } = await supabase.auth.getSession()
+  //     console.log('🌼 🔥🔥 useEffect 🔥🔥 data🌼', data);
+
+    
+    
+  //   } catch (error) {
+    
+  //     console.error('Error signing in:', error.message);
+     
+  //   }
+   
+  // }, [])
+  
+
   // useEffect(() => {
   //   async function fetchData() {
   //     try {
@@ -552,6 +590,10 @@ const index = () => {
             {displayCurrentAddress}
           </Text>
         </View>
+
+        <Pressable onPress={signOut} style={{marginTop:15}}>
+            <Text style={{textAlign:"center",color:"gray",fontSize:16}}> Sign out</Text>
+        </Pressable>
         <Pressable
           style={{
             backgroundColor: "#6CB4EE",

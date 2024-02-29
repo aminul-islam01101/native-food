@@ -13,4 +13,4 @@ export default index
 const styles = StyleSheet.create({})
 
 // -> "/"
-// -> "/home"
+// -> "/home" router.replace("/(authenticate)/login")
